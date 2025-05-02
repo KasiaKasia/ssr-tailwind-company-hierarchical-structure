@@ -35,10 +35,7 @@ export class EmployeeStructure extends Employee {
         super(id, firstName, lastName);
         this.subordinates = subordinates;
     }
-    reconstructEmployeeTree(data: EmployeeStructureInterface): EmployeeStructure {
-        const subordinates = (data.subordinates || []).map(this.reconstructEmployeeTree);
-        return new EmployeeStructure(data.id, data.firstName, data.lastName, subordinates);
-    }
+  
     findEmployeeById(root: EmployeeStructure, id: string): EmployeeStructure[] | null {
         if (root.id === id) {
             return root.subordinates.length ? this.subordinates = root.subordinates : [root];
@@ -48,7 +45,6 @@ export class EmployeeStructure extends Employee {
             const found = this.findEmployeeById(subordinate, id);
             if (found) return found;
         }
-
         return null;
     }
 
