@@ -2,13 +2,10 @@ import { Component, inject } from '@angular/core';
 import { EmployeesService } from '../../core/services/employees.service';
 import { FormsModule } from '@angular/forms';
 import { employeeStructure as rawStructure } from '../../core/services/data/employee-structure';
-import { Employee, EmployeeStructure } from '../../core/services/interfaces/employee';
+import { Employee, EmployeeStructure, ReconstructEmployeeTreeStructure } from '../../core/services/interfaces/employee';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 
-export function reconstructEmployeeTree(data: any): EmployeeStructure {
-  const subordinates = (data.subordinates || []).map(reconstructEmployeeTree);
-  return new EmployeeStructure(data.id, data.firstName, data.lastName, subordinates);
-}
+ 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
@@ -19,7 +16,7 @@ export function reconstructEmployeeTree(data: any): EmployeeStructure {
 export class EmployeeListComponent {
   protected selectedName: Employee | null = null;
   protected foundEmployee: EmployeeStructure[] = [];
-  protected readonly getEmployeeStructure = reconstructEmployeeTree(rawStructure);
+  protected readonly getEmployeeStructure = new ReconstructEmployeeTreeStructure().reconstructEmployeeTree(rawStructure);
   protected readonly employeesSignal = inject(EmployeesService).getEmployeesSignal();
  
   onEmployeeChange(): void {
