@@ -1,7 +1,7 @@
 <div class="flex ">
   <form class="flex items-center gap-10 pt-20">
     <label for="employees" class="text-white">
-      Wybierz pracownika: {{selectedName | json}}
+      Wybierz pracownika:
     </label>
 
     <select id="employees" name="name" [(ngModel)]="selectedName" [compareWith]="compareTypeFn"
@@ -18,6 +18,9 @@
 </div>
 
 <div>
+  <p>{{ selectedName?.id }}</p>
+  <p>{{ selectedName?.firstName }} {{ selectedName?.lastName }}</p>
+  <hr class="border-t border-gray-700 my-4" />
   @if (foundEmployee.length > 0) {
   <ul>
     @for (emp of foundEmployee; track emp.id) {

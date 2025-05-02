@@ -3,7 +3,6 @@ import { EmployeesService } from '../../core/services/employees.service';
 import { FormsModule } from '@angular/forms';
 import { employeeStructure as rawStructure } from '../../core/services/data/employee-structure';
 import { Employee, EmployeeStructure } from '../../core/services/interfaces/employee';
-import { JsonPipe } from '@angular/common';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 
 export function reconstructEmployeeTree(data: any): EmployeeStructure {
@@ -13,7 +12,7 @@ export function reconstructEmployeeTree(data: any): EmployeeStructure {
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [EmployeeDetailsComponent, FormsModule, JsonPipe],
+  imports: [EmployeeDetailsComponent, FormsModule],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })

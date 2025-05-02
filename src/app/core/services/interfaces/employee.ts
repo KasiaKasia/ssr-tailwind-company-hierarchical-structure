@@ -4,52 +4,44 @@ export interface EmployeeInterface {
     readonly id: string,
 }
 
-export interface EmployeeStructureInterface extends EmployeeInterface {   
-    readonly subordinates: EmployeeStructure[];
+export interface EmployeeStructureInterface extends EmployeeInterface {
+    readonly subordinates: EmployeeStructureInterface[];
 }
 
-export class Employee  {
-    constructor(
-      public readonly id: string,
-      public firstName: string,
-      public lastName: string
-    ) {}
-  
-     get fullName(): string {
-      return `${this.firstName} ${this.lastName}`;
+export class Employee {
+    constructor(public readonly id: string, 
+                public firstName: string, 
+                public lastName: string) {}
+
+    get fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
     }
-  }
-  
-  export class EmployeeStructure extends Employee {
-    protected subordinates: EmployeeStructure[]=[]; 
-   
-    constructor(
-      id: string,
-      firstName: string,
-      lastName: string,
-      subordinates: EmployeeStructure[]
-    ) {
-      super(id, firstName, lastName);
-      this.subordinates = subordinates;
+}
+
+export class EmployeeStructure extends Employee {
+    protected subordinates: EmployeeStructure[] = [];
+
+    constructor(id: string,
+        firstName: string,
+        lastName: string,
+        subordinates: EmployeeStructure[]) {
+        super(id, firstName, lastName);
+        this.subordinates = subordinates;
     }
-    findEmployeeById(
-        root: EmployeeStructure,
-        id: string
-      ): EmployeeStructure[]  |null {
+    findEmployeeById(root: EmployeeStructure, id: string): EmployeeStructure[] | null {
         if (root.id === id) {
-          return root.subordinates.length > 0 ? this.subordinates=root.subordinates : [root];
+            return root.subordinates.length ? this.subordinates = root.subordinates : [root];
         }
-      
+
         for (const subordinate of root.subordinates) {
-          const found = this.findEmployeeById(subordinate, id);
-          if (found) {
-            return found;
-          }
+            const found = this.findEmployeeById(subordinate, id);
+            if (found) return found;
         }
-      
+
         return null;
-      }
-      public getChildren(): EmployeeStructure[] {
+    }
+
+    public getChildren(): EmployeeStructure[] {
         return this.subordinates;
-      }
-  }
+    }
+}

@@ -1,6 +1,6 @@
-import { EmployeeStructure, EmployeeStructureInterface } from "../interfaces/employee";
+import { EmployeeStructureInterface } from "../interfaces/employee";
 
-export const employeeStructure: any   =  {
+export const employeeStructure: EmployeeStructureInterface = {
   firstName: "Lois",
   lastName: "Vega",
   id: "DD1WMuvT",
