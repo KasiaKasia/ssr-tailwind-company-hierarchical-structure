@@ -1,6 +1,6 @@
 # SsrTailwindCompanyHierarchicalStructure
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 
 ## Development server
 

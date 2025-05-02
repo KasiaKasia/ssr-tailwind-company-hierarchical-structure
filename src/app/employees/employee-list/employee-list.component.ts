@@ -1,0 +1,34 @@
+import { Component, inject } from '@angular/core';
+import { EmployeesService } from '../../core/services/employees.service';
+import { FormsModule } from '@angular/forms';
+import { employeeStructure as rawStructure } from '../../core/services/data/employee-structure';
+import { Employee, EmployeeStructure } from '../../core/services/interfaces/employee';
+import { JsonPipe } from '@angular/common';
+import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
+
+export function reconstructEmployeeTree(data: any): EmployeeStructure {
+  const subordinates = (data.subordinates || []).map(reconstructEmployeeTree);
+  return new EmployeeStructure(data.id, data.firstName, data.lastName, subordinates);
+}
+@Component({
+  selector: 'app-employee-list',
+  standalone: true,
+  imports: [EmployeeDetailsComponent, FormsModule, JsonPipe],
+  templateUrl: './employee-list.component.html',
+  styleUrl: './employee-list.component.css'
+})
+export class EmployeeListComponent {
+  protected selectedName: Employee | null = null;
+  protected foundEmployee: EmployeeStructure[] = [];
+  protected readonly getEmployeeStructure = reconstructEmployeeTree(rawStructure);
+  protected readonly employeesSignal = inject(EmployeesService).getEmployeesSignal();
+ 
+  onEmployeeChange(): void {
+    const employeeStructureSelected = new EmployeeStructure(this.selectedName!.id, this.selectedName!.firstName, this.selectedName!.lastName, []);
+    this.foundEmployee = employeeStructureSelected.findEmployeeById(this.getEmployeeStructure, this.selectedName!.id) ?? [];
+  }
+
+  compareTypeFn(a: Employee, b: Employee): boolean {
+    return a && b ? a.id === b.id : a === b;
+  }
+}

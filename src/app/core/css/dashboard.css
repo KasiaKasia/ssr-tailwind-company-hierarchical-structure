@@ -1,0 +1,22 @@
+ .dashboard {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh; 
+    background-color: black;
+    opacity: 0.9;
+}
+
+.dashboard--error {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    color: $color-red;
+}
+
+@media (max-width: 768px) {
+    .dashboard { 
+        padding-top: 45px;
+    }
+}
