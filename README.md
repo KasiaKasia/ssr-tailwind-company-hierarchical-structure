@@ -17,7 +17,7 @@ git clone https://github.com/KasiaKasia/ssr-tailwind-company-hierarchical-struct
 3. Next, open a web browser and navigate to the following address: http://localhost:4000/
 
 
-The project includes libraries such as: `@ngrx/store`, `TailwindCSS`. The `Composite design pattern` is also applied. You can run the project using SSR `Server-side rendering`
+The project includes libraries such as: `@ngrx/store`, `TailwindCSS`. The `Composite design pattern` is also applied. You can run the project using SSR `Server-Side Rendering`
 
 ## Development server
 

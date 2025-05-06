@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { EmployeesService } from '../../core/services/employees.service';
-import { FormsModule } from '@angular/forms';
 import { employeeStructure as rawStructure } from '../../core/services/data/employee-structure';
 import { Employee, EmployeeStructure, ReconstructEmployeeTreeStructure } from '../../core/services/interfaces/employee';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({

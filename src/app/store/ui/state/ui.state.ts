@@ -1,7 +1,9 @@
 export interface UiState {
-    fontSize: number;
+    fontSize?: number;
+    color?: string;
 }
 
 export const initialUiState: UiState = {
     fontSize: 19,
+    color: 'white'
 };

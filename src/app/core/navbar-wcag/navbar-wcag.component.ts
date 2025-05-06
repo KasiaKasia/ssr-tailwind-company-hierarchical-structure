@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FontSizeService } from '../../store/ui/services/font-size.service';
+import { WcagService } from '../../store/ui/services/wcag/wcag.service';
 
 @Component({
   selector: 'app-navbar-wcag',
@@ -8,9 +8,12 @@ import { FontSizeService } from '../../store/ui/services/font-size.service';
   styleUrl: './navbar-wcag.component.css'
 })
 export class NavbarWcagComponent {
-  protected fontSize = inject(FontSizeService)
+  protected wcagService = inject(WcagService)
 
   setFontSizeWCAG(size: number) {
-    this.fontSize.setFontSize(size);
+    this.wcagService.setFontSize(size);
+  }
+  setColorWCAG() {
+    this.wcagService.setColor();
   }
 }
