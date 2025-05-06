@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setColor, setFontSize } from '../actions/ui.actions';
+import { setColor, setFontSize, setLetterSpacing, setLineHeight } from '../actions/ui.actions';
 import { initialUiState } from '../state/ui.state';
 
 export const uiReducer = createReducer(
@@ -11,5 +11,14 @@ export const uiReducer = createReducer(
   on(setColor, (state, { color }) => ({
     ...state,
     color
+  })),
+  on(setLetterSpacing, (state, { letterSpacing }) => ({
+    ...state,
+    letterSpacing
+  }))
+  ,
+  on(setLineHeight, (state, { lineHeight }) => ({
+    ...state,
+    lineHeight
   }))
 );

@@ -5,10 +5,19 @@ export const selectUiState = createFeatureSelector<UiState>('ui');
 
 export const selectFontSize = createSelector(
   selectUiState,
-  (state) =>  state.fontSize 
+  (state) => state.fontSize
 );
 
 export const selectColor = createSelector(
   selectUiState,
-  (state) =>  state.color 
+  (state) => state.color
+);
+
+export const selectLetterSpacing = createSelector(
+  selectUiState,
+  (state) => state.letterSpacing
+);
+export const selectLineHeight = createSelector(
+  selectUiState,
+  (state) => state.lineHeight
 );

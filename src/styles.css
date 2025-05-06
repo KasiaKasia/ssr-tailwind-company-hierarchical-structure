@@ -1,13 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/core/css/dashboard.css";
 @import "tailwindcss";
-
+:root {
+    --main-font-size: 19px;
+    --main-letter-spacing: 0.12;
+    --main-word-spacing: 0.16;
+    --main-color: white;
+    --main-line-height: 1.5;
+}
+  
 body {
     background-image: url('./assets/icons/background.png');
     background-size: cover;
     background-position: center;
     background-repeat:  repeat;
-    font-size: 19px; 
-    color: white;
-    border-color: white;
+    font-size: var(--main-font-size); 
+    color: var(--main-color); ;
+    border-color: var(--main-color); ;
+    line-height: var(--main-line-height);
+    letter-spacing: calc(var(--main-font-size) * var(--main-letter-spacing));
+    word-spacing: calc(var(--main-font-size) * var(--main-word-spacing));
 }

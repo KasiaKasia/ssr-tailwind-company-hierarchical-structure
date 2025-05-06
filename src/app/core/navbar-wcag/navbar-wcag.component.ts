@@ -16,4 +16,10 @@ export class NavbarWcagComponent {
   setColorWCAG() {
     this.wcagService.setColor();
   }
+  setLetterSpacingWCAG(){
+    this.wcagService.setLetterSpacing();
+  }
+  setLineHeightWCAG(){
+    this.wcagService.setLineHeight();
+  }
 }
