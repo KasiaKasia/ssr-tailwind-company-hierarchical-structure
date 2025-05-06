@@ -3,21 +3,12 @@ import { UiState } from '../state/ui.state';
 
 export const selectUiState = createFeatureSelector<UiState>('ui');
 
-export const selectFontSize = createSelector(
+export const selectUiSettings = createSelector(
   selectUiState,
-  (state) => state.fontSize
-);
-
-export const selectColor = createSelector(
-  selectUiState,
-  (state) => state.color
-);
-
-export const selectLetterSpacing = createSelector(
-  selectUiState,
-  (state) => state.letterSpacing
-);
-export const selectLineHeight = createSelector(
-  selectUiState,
-  (state) => state.lineHeight
+  (state) => ({
+    fontSize: state.fontSize,
+    color: state.color,
+    letterSpacing: state.letterSpacing,
+    lineHeight: state.lineHeight,
+  })
 );
