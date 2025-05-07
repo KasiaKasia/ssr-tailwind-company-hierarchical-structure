@@ -15,7 +15,7 @@ export class WcagService {
   setFontSize(size: number) {
     this.store.dispatch(setFontSize({ fontSize: size }));
   }
-  
+
   setColor() {
     const getColor = getComputedStyle(this.document.body).getPropertyValue('--main-color').trim();
     const changeColor = getColor === 'rgb(255, 234, 0)' ? 'white' : 'rgb(255, 234, 0)';
@@ -30,7 +30,6 @@ export class WcagService {
 
   setLetterSpacing() {
     const getLetterSpacing = getComputedStyle(this.document.body).getPropertyValue('--main-letter-spacing');
-    console.log(typeof getLetterSpacing);
     const changeLetterSpacing = getLetterSpacing === '0.12' ? '0.14' : '0.12';
     this.store.dispatch(setLetterSpacing({ letterSpacing: changeLetterSpacing }));
   }

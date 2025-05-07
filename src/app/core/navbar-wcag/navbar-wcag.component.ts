@@ -1,25 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { WcagService } from '../../store/ui/services/wcag/wcag.service';
+import { Component } from '@angular/core';
+import { ButtonComponent, UiActionType } from '../../shared/components/button/button.component';
+import { ImgComponent } from '../../shared/components/img/img.component';
 
 @Component({
   selector: 'app-navbar-wcag',
   standalone: true,
+  imports: [ButtonComponent, ImgComponent],
   templateUrl: './navbar-wcag.component.html',
   styleUrl: './navbar-wcag.component.css'
 })
 export class NavbarWcagComponent {
-  protected wcagService = inject(WcagService)
-
-  setFontSizeWCAG(size: number) {
-    this.wcagService.setFontSize(size);
-  }
-  setColorWCAG() {
-    this.wcagService.setColor();
-  }
-  setLetterSpacingWCAG(){
-    this.wcagService.setLetterSpacing();
-  }
-  setLineHeightWCAG(){
-    this.wcagService.setLineHeight();
-  }
+  UiActionType = UiActionType;
 }
