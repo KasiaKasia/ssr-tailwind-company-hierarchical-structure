@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ButtonComponent, UiActionType } from '../../shared/components/button/button.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ImgComponent } from '../../shared/components/img/img.component';
+import { FontSize, UIActionType } from '../settings-wcag/settings-wcag';
 
 @Component({
   selector: 'app-navbar-wcag',
@@ -10,5 +11,6 @@ import { ImgComponent } from '../../shared/components/img/img.component';
   styleUrl: './navbar-wcag.component.css'
 })
 export class NavbarWcagComponent {
-  UiActionType = UiActionType;
+  UiActionType = UIActionType;
+  FontSize = FontSize;
 }

@@ -1,12 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { WcagService } from '../../../store/ui/services/wcag/wcag.service';
+import { UIActionType } from '../../../core/settings-wcag/settings-wcag';
 
-export enum UiActionType {
-  FontSize = 'fontSize',
-  LineHeight = 'lineHeight',
-  LetterSpacing = 'letterSpacing',
-  Color = 'color'
-}
 
 @Component({
   selector: 'app-button',
@@ -17,7 +12,7 @@ export enum UiActionType {
 export class ButtonComponent {
   protected wcagService = inject(WcagService)
 
-  readonly actionType = input<UiActionType>()
+  readonly actionType = input<UIActionType>()
   readonly value = input<number>(19);
   readonly buttonTitle = input<string>('')
   readonly ariaLabel = input<string>('')
@@ -25,16 +20,16 @@ export class ButtonComponent {
   onClick(): void {
 
     switch (this.actionType()) {
-      case UiActionType.FontSize:
+      case UIActionType.FontSize:
         this.wcagService.setFontSize(this.value());
         break;
-      case UiActionType.LineHeight:
+      case UIActionType.LineHeight:
         this.wcagService.setLineHeight();
         break;
-      case UiActionType.LetterSpacing:
+      case UIActionType.LetterSpacing:
         this.wcagService.setLetterSpacing();
         break;
-      case UiActionType.Color:
+      case UIActionType.Color:
         this.wcagService.setColor();
         break;
       default:
