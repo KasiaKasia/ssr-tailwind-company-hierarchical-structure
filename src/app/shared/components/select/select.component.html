@@ -1,18 +1,18 @@
-<div class="flex items-center gap-10 pt-20">
-<label for="{{forId()}}">{{label()}}</label>
+<div class="flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-5 pt-20 w-full">
+    <label for="{{forId()}}">{{ label() }}</label>
 
-<select id="{{forId()}}" 
-        name="{{name()}}" 
-        [(ngModel)]="selectedValue" 
-        [compareWith]="compareTypeFn"        
-        (change)="onEmployeeChange()" 
-        class="{{cssClassSelect()}}"
-        [attr.aria-label]="ariaLabel()" >
+    <select id="{{forId()}}" 
+            name="{{name()}}" 
+            [(ngModel)]="selectedValue" 
+            [compareWith]="compareTypeFn"
+            (change)="onEmployeeChange()" 
+            class="{{cssClassSelect()}}" 
+            [attr.aria-label]="ariaLabel()">
 
-    @for (employee of employeesSignal(); track employee.id) {
-    <option class="{{cssClassOptions()}}" [ngValue]="employee">
-        {{ employee.firstName }} {{ employee.lastName }}
-    </option>
-    }
-</select>
+        @for (employee of employeesSignal(); track employee.id) {
+            <option class="{{cssClassOptions()}}" [ngValue]="employee">
+                {{ employee.firstName }} {{ employee.lastName }}
+            </option>
+        }
+    </select>
 </div>

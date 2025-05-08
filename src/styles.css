@@ -14,7 +14,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat:  repeat;
-    font-size: var(--main-font-size); 
+    font-size: var(--main-font-size);
     color: var(--main-color); ;
     border-color: var(--main-color); ;
     line-height: var(--main-line-height);
