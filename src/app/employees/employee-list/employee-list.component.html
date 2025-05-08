@@ -1,30 +1,20 @@
-<form class="flex items-center gap-10 pt-20">
-  <label for="employees">
-    Wybierz pracownika:
-  </label>
-  <select id="employees" name="name" [(ngModel)]="selectedName" [compareWith]="compareTypeFn"
-    aria-label="Wybierz pracownika" (change)="onEmployeeChange()"
-    class="w-90 bg-black bg-opacity-90 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-gray-500">
+<app-select [label]="'Wybierz pracownika'" 
+            [name]="'name'" 
+            [forId]="'employees'"
+            [cssClassSelect]="'w-90 bg-black bg-opacity-90 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-gray-500'"
+            [cssClassOptions]="'w-60 bg-black bg-opacity-90'" 
+            [ariaLabel]="'Wybierz pracownika'"
+            [employeesSignal]="employeesSignal()" 
+            (foundEmployee)="foundEmployee=$event" 
+            (selectedName)="selectedName=$event" />
 
-    @for (employee of employeesSignal(); track employee.id) {
-    <option class="w-60 bg-black bg-opacity-90 " [ngValue]="employee">
-      {{ employee.firstName }} {{ employee.lastName }}
-    </option>
-    }
-  </select>
-</form>
-
-<div>
-  <p>ID: {{ selectedName?.id }}</p>
-  <p>{{ selectedName?.firstName }} {{ selectedName?.lastName }}</p>
-  <hr class="border border-gray-700 my-4" />
-  @if (foundEmployee.length > 0) {
-  <ul>
-    @for (emp of foundEmployee; track emp.id) {
+<p>ID: {{ selectedName?.id }}</p>
+<p>{{ selectedName?.firstName }} {{ selectedName?.lastName }}</p>
+<hr class="border border-gray-700 my-4" />
+<ul>
+  @for (emp of foundEmployee; track emp.id) {
     <li>
       <app-employee-details [node]="emp" />
     </li>
-    }
-  </ul>
   }
-</div>
+</ul>

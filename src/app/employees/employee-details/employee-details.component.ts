@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 })
 export class EmployeeDetailsComponent {
   @Input() node!: EmployeeStructure;
-
+  
   getChildren(): EmployeeStructure | EmployeeStructure[] | null {
     return this.node ? this.node.getChildren() : [];
   }

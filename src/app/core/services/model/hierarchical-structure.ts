@@ -9,7 +9,6 @@ export abstract class HierarchicalStructure {
         return this.parent;
     }
 
-
     public isComposite(): boolean {
         return false;
     }
@@ -31,6 +30,7 @@ export class Employee extends HierarchicalStructure {
     public getName(): string {
         return this.firstName + ' ' + this.lastName;
     }
+    
     public getId(): string {
         return this.id;
     }

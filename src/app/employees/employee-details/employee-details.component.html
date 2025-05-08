@@ -1,8 +1,10 @@
 <ul class="tree">
     @if (node) {
     <li *ngFor="let child of node.getChildren()">
-        <ng-content>{{child.firstName }} {{ child.lastName }}</ng-content>
-        <app-employee-details [node]="child"/>
+        <ng-content>
+            <p>{{ child?.firstName }} {{ child?.lastName }}</p>
+        </ng-content>
+        <app-employee-details [node]="child" />
     </li>
     }
 </ul>
