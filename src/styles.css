@@ -21,3 +21,9 @@ body {
     letter-spacing: calc(var(--main-font-size) * var(--main-letter-spacing));
     word-spacing: calc(var(--main-font-size) * var(--main-word-spacing));
 }
+
+.focus-visible\:ring-white {
+    &:focus-visible {
+        --tw-ring-color: var(--main-color);
+    }
+}

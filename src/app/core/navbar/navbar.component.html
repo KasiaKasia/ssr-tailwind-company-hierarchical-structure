@@ -1,17 +1,17 @@
 <nav class="bg-stone-900/90 p-4">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
+        <div class="hover:underline p-3 focus:outline-none focus-visible:ring-3 focus-visible:ring-white" tabindex="0" role="heading" aria-label="Struktura hierarchiczna firmy">
             Struktura hierarchiczna firmy
-        </div>
-        <div class="flex flex-col md:flex-row gap-4 ">
+        </div>      
+        <div class="flex flex-col md:flex-row gap-6 ">
             <app-router-link 
                 [routerPath]="'/start'" 
-                [cssClass]="'hover:underline'" 
+                [cssClass]="'hover:underline p-3 focus:outline-none focus-visible:ring-3 focus-visible:ring-white'"
                 [cssClassActive]="'font-bold'" 
                 [routerLinkTitle]="'Start'" />
             <app-router-link 
                 [routerPath]="'/employees/employee-list'" 
-                [cssClass]="'hover:underline'" 
+                [cssClass]="'hover:underline p-3 focus:outline-none focus-visible:ring-3 focus-visible:ring-white'" 
                 [cssClassActive]="'font-bold'" 
                 [routerLinkTitle]="'Lista pracowników'" />
         </div>
