@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center mb-4">
+    <div class="flex flex-col items-center border border-gray-300 px-4 py-2 rounded shadow text-black bg-white">
+
+        @if (node && node!.getChildren()!.length) {
+            <div class="font-semibold ">
+                {{ fullName }}
+            </div>
+        } @else { {{ fullName }} }
+
+        @if (node && node!.getChildren()!.length) {
+            <div class="flex flex-wrap justify-center gap-4 mt-2">
+                @for (child of node.getChildren(); track child.id) {
+
+                    <app-tree-node [node]="child" />
+                }
+            </div>
+        }
+    </div>
+</div>
