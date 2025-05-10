@@ -13,15 +13,15 @@
 <hr class="border border-gray-700 my-4" />
 <ul>
   @for (emp of foundEmployee; track emp.id) {
-    <li>
-      <app-employee-details [node]="emp" />
-    </li>
+  <li>
+    <app-employee-nested-list [node]="emp" />
+  </li>
   }
 </ul>
 
 <div class="flex flex-col items-center px-4 py-2">
   @for (emp of foundEmployee; track emp.id) {
 
-    <app-tree-node [node]="emp" />
+  <app-tree-node [node]="emp" />
   }
 </div>

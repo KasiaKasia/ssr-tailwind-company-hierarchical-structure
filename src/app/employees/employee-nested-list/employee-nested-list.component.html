@@ -1,0 +1,10 @@
+<ul class="tree">
+    @if (node) {
+        @for ( child of node.getChildren(); track child.id) {
+        <li>
+            <p>{{ child?.firstName }} {{ child?.lastName }}</p>
+            <app-employee-nested-list [node]="child" />
+        </li>
+        }
+    }
+</ul>
