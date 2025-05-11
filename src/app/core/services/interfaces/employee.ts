@@ -17,8 +17,8 @@ export class ReconstructEmployeeTreeStructure {
 
 export class Employee {
     constructor(public readonly id: string,
-        public firstName: string,
-        public lastName: string) { }
+                public firstName: string,
+                public lastName: string) {}
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
@@ -29,9 +29,9 @@ export class EmployeeStructure extends Employee {
     protected subordinates: EmployeeStructure[] = [];
 
     constructor(id: string,
-        firstName: string,
-        lastName: string,
-        subordinates: EmployeeStructure[]) {
+                firstName: string,
+                lastName: string,
+                subordinates: EmployeeStructure[]) {
         super(id, firstName, lastName);
         this.subordinates = subordinates;
     }

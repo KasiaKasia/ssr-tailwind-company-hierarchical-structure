@@ -17,10 +17,10 @@ export class Employee extends HierarchicalStructure {
     private lastName: string;
     private id: string;
     constructor(firstName: string, lastName: string, id: string) {
-        super()
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
+                super()
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.id = id;
     }
 
     public getName(): string {
