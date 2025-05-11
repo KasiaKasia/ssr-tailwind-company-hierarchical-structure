@@ -7,6 +7,9 @@
             [employeesSignal]="employeesSignal()" 
             (foundEmployee)="foundEmployee=$event"
             (selectedName)="selectedName=$event" />
+            
+@if(selectedName) {
+  <app-employee-structure [foundEmployee]="foundEmployee" 
+                          [selectedName]="selectedName" />
+}
 
-<app-employee-structure [foundEmployee]="foundEmployee" 
-                        [selectedName]="selectedName" />

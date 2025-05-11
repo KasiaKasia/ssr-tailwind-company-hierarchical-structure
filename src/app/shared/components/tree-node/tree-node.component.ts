@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { EmployeeStructure } from '../../../core/services/interfaces/employee';
 
 @Component({
@@ -7,9 +7,10 @@ import { EmployeeStructure } from '../../../core/services/interfaces/employee';
   styleUrl: './tree-node.component.css'
 })
 export class TreeNodeComponent {
-  @Input() node!: EmployeeStructure;
-  @Input() isRoot = false;
+  node = input<EmployeeStructure>();
+  isRoot = input<Boolean>(false);
+
   get fullName(): string {
-    return `${this.node.firstName} ${this.node.lastName}`;
+    return `${this.node()!.firstName} ${this.node()!.lastName}`;
   }
 }
