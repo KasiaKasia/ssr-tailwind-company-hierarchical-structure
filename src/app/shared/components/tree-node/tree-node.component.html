@@ -1,19 +1,37 @@
 <div class="flex flex-col items-center mb-4">
-    <div class="flex flex-col items-center border border-gray-300 px-4 py-2 rounded shadow text-black bg-white">
-
-        @if (node && node!.getChildren()!.length) {
-            <div class="font-semibold ">
-                {{ fullName }}
-            </div>
-        } @else { {{ fullName }} }
-
-        @if (node && node!.getChildren()!.length) {
-            <div class="flex flex-wrap justify-center gap-4 mt-2">
-                @for (child of node.getChildren(); track child.id) {
-
-                    <app-tree-node [node]="child" />
-                }
-            </div>
-        }
-    </div>
-</div>
+    @if (isRoot) {
+       
+      <div class="bg-white text-black font-semibold px-4 py-2 rounded shadow text-center">
+        {{ fullName }}
+      </div>
+  
+      @if (node!.getChildren()!.length) {
+        <div class="flex flex-wrap justify-center gap-4 mt-4">
+          @for (child of node.getChildren(); track child.id) {
+            <app-tree-node [node]="child" />
+          }
+        </div>
+      }
+    }
+  
+    @else if (node!.getChildren()!.length) {
+    
+      <div class="flex flex-col items-center bg-white border border-gray-500 px-4 py-2 rounded shadow text-black">
+        <div class="text-center mb-2 font-semibold">{{ fullName }}</div>
+  
+        <div class="flex flex-wrap justify-center gap-2">
+          @for (child of node.getChildren(); track child.id) {
+            <app-tree-node [node]="child" />
+          }
+        </div>
+      </div>
+    }
+  
+    @else {
+   
+      <div class="bg-white border border-gray-500 px-4 py-2 rounded shadow text-center text-black">
+        {{ fullName }}
+      </div>
+    }
+  </div>
+  

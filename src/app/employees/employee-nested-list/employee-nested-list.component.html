@@ -1,10 +1,10 @@
-<ul class="tree">
+<ul class="list-none m-0 pl-5 flex flex-col space-y-2">
     @if (node) {
         @for ( child of node.getChildren(); track child.id) {
-        <li>
-            <p>{{ child?.firstName }} {{ child?.lastName }}</p>
-            <app-employee-nested-list [node]="child" />
-        </li>
+            <li class="flex flex-col items-start">
+                <span class="left-[-10px] text-xl">• {{ child?.firstName }} {{ child?.lastName }}</span>
+                <app-employee-nested-list [node]="child" class="ml-5" />
+            </li>
         }
     }
 </ul>

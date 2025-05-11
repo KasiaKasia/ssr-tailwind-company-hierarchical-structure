@@ -8,7 +8,7 @@ import { EmployeeStructure } from '../../../core/services/interfaces/employee';
 })
 export class TreeNodeComponent {
   @Input() node!: EmployeeStructure;
-  
+  @Input() isRoot = false;
   get fullName(): string {
     return `${this.node.firstName} ${this.node.lastName}`;
   }
