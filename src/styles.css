@@ -2,7 +2,7 @@
 @import "./app/core/css/dashboard.css";
 @import "tailwindcss";
 :root {
-    --main-font-size: 19px;
+    --main-font-size: 18px;
     --main-letter-spacing: 0.12;
     --main-word-spacing: 0.16;
     --main-color: white;

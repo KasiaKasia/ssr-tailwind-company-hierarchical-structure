@@ -1,5 +1,5 @@
 export enum FontSize {
-    FONTSIZE_19 = 19,
+    FONTSIZE_18 = 18,
     FONTSIZE_24 = 24,
     FONTSIZE_30 = 30
 }
