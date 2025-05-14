@@ -1,0 +1,46 @@
+<h2 for="websiteMap" class="flex justify-center pt-20">Mapa strony</h2>
+<hr class="border border-gray-700 my-4 w-4/5 mx-auto" />
+
+<table id="websiteMap" class="table-fixed w-4/5 mt-5 mx-auto">
+    <thead>
+        <tr>
+            <th class="w-2/3 break-words text-left p-2">Lista stron</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="break-words p-2">
+                <app-router-link [routerPath]="'/start'"
+                                [cssClass]="'hover:underline focus:outline-none focus-visible:ring-3 focus-visible:ring-white cursor-pointer'"
+                                [cssClassActive]="'font-bold'" 
+                                [routerLinkTitle]="'Start'" />
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="break-words p-2">
+                <app-router-link [routerPath]="'/employees/employee-list'"
+                                [cssClass]="'hover:underline focus:outline-none focus-visible:ring-3 focus-visible:ring-white cursor-pointer'"
+                                [cssClassActive]="'font-bold'" 
+                                [routerLinkTitle]="'Lista pracowników'" />
+            </td>
+            <td class="text-right p-2">
+                <button (click)="showSubmenu = !showSubmenu" class="w-6">&#709;</button>
+            </td>
+        </tr>
+
+        @if (showSubmenu) {
+        <ng-container>
+            <tr>
+                <td class="p-2" colspan="2">
+                    <ul class="pl-6 list-disc">
+                        <li>Wizualizacja struktury pracowników firmy (wypunktowana)</li>
+                        <li>Wizualizacja struktury pracowników firmy (widok drzewa)</li>
+                    </ul>
+                </td>
+            </tr>
+        </ng-container>
+        }
+    </tbody>
+</table>

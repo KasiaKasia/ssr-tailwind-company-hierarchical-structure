@@ -17,6 +17,10 @@ export const routes: Routes = [
         loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule)
     },
     {
+        path: 'website-map',
+        loadChildren: () => import('./website-map/website-map.module').then(m => m.WebsiteMapModule)
+    },
+    {
         path: '404',
         component: NotFoundComponent
     },

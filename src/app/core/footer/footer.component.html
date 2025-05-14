@@ -2,6 +2,11 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="w-[60px]"></div>
         <div class="flex text-center" tabindex="0" role="contentinfo">Przykładowa aplikacja wyświetlania struktury hierarchicznej pracowników</div>
+          <app-router-link 
+                [routerPath]="'/website-map'" 
+                [cssClass]="'hover:underline p-3 focus:outline-none focus-visible:ring-3 focus-visible:ring-white cursor-pointer'"
+                [cssClassActive]="'font-bold'" 
+                [routerLinkTitle]="'Mapa strony'" />
         <app-scroll-up />
     </div>
 </div>
