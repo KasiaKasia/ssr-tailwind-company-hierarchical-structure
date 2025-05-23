@@ -17,5 +17,6 @@ export enum UIActionType {
     FontSize = 'fontSize',
     LineHeight = 'lineHeight',
     LetterSpacing = 'letterSpacing',
-    Color = 'color'
+    Color = 'color',
+    ReadPage = 'readPage'
 }

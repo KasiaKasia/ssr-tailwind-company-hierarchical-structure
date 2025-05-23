@@ -32,6 +32,9 @@ export class ButtonComponent {
       case UIActionType.Color:
         this.wcagService.setColor();
         break;
+      case UIActionType.ReadPage:
+        this.wcagService.readPage();
+        break;
       default:
         console.warn('Nieznana akcja:', this.actionType());
     }

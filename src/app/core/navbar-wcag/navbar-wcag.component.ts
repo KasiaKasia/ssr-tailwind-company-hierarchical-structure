@@ -12,5 +12,5 @@ import { FontSize, UIActionType } from '../settings-wcag/settings-wcag';
 })
 export class NavbarWcagComponent {
   UiActionType = UIActionType;
-  FontSize = FontSize;
+  FontSize = FontSize; 
 }

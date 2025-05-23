@@ -34,4 +34,11 @@ export class WcagService {
     const changeLetterSpacing = getLetterSpacing === LETTER_SPACING_MIN ? LETTER_SPACING_MAX : LETTER_SPACING_MIN;
     this.store.dispatch(setLetterSpacing({ letterSpacing: changeLetterSpacing }));
   }
+
+  readPage() {
+    const textToRead = this.document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.lang = 'pl-PL';
+    speechSynthesis.speak(utterance);
+  }
 }
