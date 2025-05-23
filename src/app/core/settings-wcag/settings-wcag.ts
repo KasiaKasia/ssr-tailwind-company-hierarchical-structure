@@ -18,5 +18,8 @@ export enum UIActionType {
     LineHeight = 'lineHeight',
     LetterSpacing = 'letterSpacing',
     Color = 'color',
-    ReadPage = 'readPage'
+    ReadPage = 'readPage',
+    PausePage = 'pausePage',
+    ResumePage = 'resumePage',
+    StopPage = 'stopPage'
 }

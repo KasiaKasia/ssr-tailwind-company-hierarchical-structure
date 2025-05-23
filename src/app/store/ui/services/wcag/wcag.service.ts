@@ -11,7 +11,8 @@ import { COLOR_WHITE, COLOR_YELLOW, LETTER_SPACING_MAX, LETTER_SPACING_MIN, LINE
 export class WcagService {
   private document = inject(DOCUMENT);
   private store = inject(Store);
-  private getUISettingsWCAG = inject(WcagStoreService).getUISettingsWCAG();
+  private getUISettingsWCAG = inject(WcagStoreService).getUISettingsWCAG(); 
+
 
   setFontSize(size: number) {
     this.store.dispatch(setFontSize({ fontSize: size }));
@@ -39,6 +40,23 @@ export class WcagService {
     const textToRead = this.document.body.innerText;
     const utterance = new SpeechSynthesisUtterance(textToRead);
     utterance.lang = 'pl-PL';
-    speechSynthesis.speak(utterance);
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance); 
   }
+  stopReading() {
+    speechSynthesis.cancel();
+  }
+  pauseReading() {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+      speechSynthesis.pause(); 
+    }
+  }
+
+  resumeReading() {
+    if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+    }
+  }
+
 }

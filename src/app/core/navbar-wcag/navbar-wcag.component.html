@@ -15,6 +15,13 @@
             <div class="flex gap-4">
                 <app-button [actionType]="UiActionType.ReadPage" [buttonTitle]="'🔊'" 
                     [ariaLabel]="'🔊 Przeczytaj stronę'"  class="text-lg"/> 
+                <app-button [actionType]="UiActionType.PausePage" [buttonTitle]="'⏸️'" 
+                    [ariaLabel]="'⏸️ Zatrzymaj czytanie strony'"  class="text-lg"/> 
+                      <app-button [actionType]="UiActionType.ResumePage" [buttonTitle]="'▶️'" 
+                    [ariaLabel]="'▶️ Wznów czytanie strony'"  class="text-lg"/> 
+                <app-button [actionType]="UiActionType.StopPage" [buttonTitle]="' ⏹️'" 
+                    [ariaLabel]="' ⏹️ Zakończ czytanie strony'"  class="text-lg"/> 
+                    
 
                 <app-button [actionType]="UiActionType.FontSize" [value]="FontSize.FONTSIZE_18" [buttonTitle]="'A'"
                     [ariaLabel]="'Zmień rozmiar czcionki na 18px'" class="text-lg"/>

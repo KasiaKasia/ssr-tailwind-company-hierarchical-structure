@@ -35,6 +35,15 @@ export class ButtonComponent {
       case UIActionType.ReadPage:
         this.wcagService.readPage();
         break;
+      case UIActionType.PausePage:
+        this.wcagService.pauseReading();
+        break;
+      case UIActionType.ResumePage:
+        this.wcagService.resumeReading();
+        break;
+      case UIActionType.StopPage:
+        this.wcagService.stopReading();
+        break;
       default:
         console.warn('Nieznana akcja:', this.actionType());
     }
