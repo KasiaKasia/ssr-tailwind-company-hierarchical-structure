@@ -5,11 +5,23 @@
     <p>{{selectedName()?.firstName}} {{selectedName()?.lastName}}</p>
 </div>
 
+
+<h5>Lista projektów:</h5>
+@if (store.selectedEmployeeProjects().length > 0) {
+    <ul class="font-semibold mt-12 mb-8 ml-5 md:ml-10 lg:ml-15">
+        @for (project of store.selectedEmployeeProjects(); track project.id) {
+            <li> {{ project.id }}</li>
+        }
+    </ul>
+} @else {
+    <p>Brak przypisanych projektów</p>
+}
+
 <ul>
     @for (emp of foundEmployee(); track emp.id) {
-    <li>
-        <app-employee-nested-list [node]="emp" />
-    </li>
+        <li>
+            <app-employee-nested-list [node]="emp" />
+        </li>
     }
 </ul>
 

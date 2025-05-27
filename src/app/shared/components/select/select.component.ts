@@ -1,8 +1,8 @@
-import { Component, inject, input, model, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Employee, EmployeeInterface, EmployeeStructure, ReconstructEmployeeTreeStructure } from '../../../core/services/interfaces/employee';
-import { EmployeesService } from '../../../core/services/employees.service';
 import { employeeStructure as rawStructure } from '../../../core/services/data/employee-structure';
+import { EmployeeStore } from '../../../employees/signal-store/employee.store';
 
 @Component({
   selector: 'app-select',
@@ -20,14 +20,17 @@ export class SelectComponent {
   readonly cssClassOptions = input<string>('')
   readonly ariaLabel = input<string>('')
   readonly employeesSignal = input<EmployeeInterface[]>([])
-  protected readonly selectedValue: Employee | null = null;  
+  protected readonly selectedValue: Employee | null = null;
   protected readonly foundEmployee = output<EmployeeStructure[]>()
   protected readonly selectedName = output<Employee>()
+  store = inject(EmployeeStore);
+
 
   onEmployeeChange(): void {
-    const employeeStructureSelected = new EmployeeStructure(this.selectedValue!.id, this.selectedValue!.firstName, this.selectedValue!.lastName, []);
+    const employeeStructureSelected = new EmployeeStructure(this.selectedValue!.id, this.selectedValue!.firstName, this.selectedValue!.lastName, [], []);
     this.foundEmployee.emit(employeeStructureSelected.findEmployeeById(this.getEmployeeStructure, this.selectedValue!.id) ?? []);
     this.selectedName.emit(this.selectedValue!)
+    this.store.selectEmployee(this.selectedValue!.id);
   }
   compareTypeFn(a: Employee, b: Employee): boolean {
     return a && b ? a.id === b.id : a === b;
