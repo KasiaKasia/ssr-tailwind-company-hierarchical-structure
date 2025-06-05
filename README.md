@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # About
 
 The application has been designed with `WCAG` (`Web Content Accessibility Guidelines`) accessibility standards in mind, to ensure digital accessibility.
-The project includes libraries such as: `@ngrx/store`, `TailwindCSS`. The `Composite design pattern` was used to implement the company's employee structure. You can run the project using SSR `Server-Side Rendering`.
+The project includes libraries such as: `@ngrx/store`, `TailwindCSS`. The `Composite design pattern` is also applied. You can run the project using SSR `Server-Side Rendering`.
 Change detection using the `Zone.js` library has been switched to the `provideExperimentalZonelessChangeDetection()` method, in order to improve performance.
 
 ## Steps to run the application using SSR
